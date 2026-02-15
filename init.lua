@@ -1,7 +1,21 @@
+-- Bootstrap 
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+vim.g.have_nerd_font = true
+vim.opt.termguicolors = true
+vim.g.mapleader = " "
+vim.opt.guicursor = ""
+
+local wilkuu_prefix = "lua.wilkuu."
+
+require(wilkuu_prefix .. "options")
+require(wilkuu_prefix .. "keymaps").vim()
+
+-- TODO: Make a config flag for adding/removing plugin managers. (So that you can use it safely as root)
+-- Initialize Lazy
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
--- Initialize Lazy
-if not vim.loop.fs_stat(lazypath) then 
+if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
     "git",
     "clone",
@@ -10,32 +24,20 @@ if not vim.loop.fs_stat(lazypath) then
     "--branch=stable", -- latest stable release
     lazypath,
 })
+end
 
-end 
 vim.opt.rtp:prepend(lazypath)
-vim.g.mapleader = " "
-vim.g.localleader = ","
-vim.opt.termguicolors = true
-vim.opt.guicursor = ""
 
 require("lazy").setup("plugins", {
   rocks = { enabled = false },
   dev = {
     path = "~/.local/share/nvim/nix",
     fallback = false,
-  }, 
+  },
 })
 
--- Workaround for Rustanalyzer being an ass 
-for _, method in ipairs({ 'textDocument/diagnostic', 'workspace/diagnostic' }) do
-    local default_diagnostic_handler = vim.lsp.handlers[method]
-    vim.lsp.handlers[method] = function(err, result, context, config)
-        if err ~= nil and err.code == -32802 then
-            return
-        end
-        return default_diagnostic_handler(err, result, context, config)
-    end
-end
 
-require("luasnip.loaders.from_lua").load({paths = "~/.config/nvim/snippets"})
-require("wilkuu")
+require("lua.workarounds")
+-- require("luasnip.loaders.from_lua").load({paths = "~/.config/nvim/snippets"})
+require(wilkuu_prefix .. "plugin_config")
+

@@ -28,7 +28,7 @@ return {
   --       vim.api.nvim_create_user_command("PeekClose", require("peek").close, {})
   --   end,
   -- },
-  {
-    "micangl/cmp-vimtex",
-  }
+  -- {
+  --   "micangl/cmp-vimtex",
+  -- }
 }

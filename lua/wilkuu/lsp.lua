@@ -37,6 +37,33 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 
 
+
+  -- vim.lsp.config('texlab', {
+  --     settings = { texlab = {
+  --     auxDirectory = "./latex_build",
+  --     bibtexFormatter = "texlab",
+  --     build = {
+  --       args = { "-pdf","-bibtex", "-interaction=nonstopmode", "-synctex=1","-auxdir=./latex_build","-output-directory=./latex_build", "%f"},
+  --       executable = "latexmk",
+  --       -- args = { "-X", "compile", "%f", "--synctex", "--keep-logs", "--keep-intermediates", "--outdir", "./latex_build" },
+  --       -- executable = "/usr/bin/tectonic",
+  --       forwardSearchAfter = false,
+  --       onSave = true
+  --     },
+  --     chktex = {
+  --       onEdit = false,
+  --       onOpenAndSave = false
+  --     },
+  --     diagnosticsDelay = 300,
+  --     formatterLineLength = 80,
+  --     latexFormatter = "latexindent",
+  --     latexindent = {
+  --       modifyLineBreaks = false
+  --     }
+  --   }}}
+	end
+})
+
   -- Enable your LSP's here 
   vim.lsp.enable('nixd')
   --  vim.lsp.config('nixd', {})
@@ -102,7 +129,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
        check = {
           command = "clippy",
           extraArgs = {
-            "--all-targets",
             "--all-features",
           },
         },
@@ -130,31 +156,4 @@ vim.api.nvim_create_autocmd('LspAttach', {
     { cmd = {"java-language-server"},
       settings = {}
     })
-
-  -- vim.lsp.config('texlab', {
-  --     settings = { texlab = {
-  --     auxDirectory = "./latex_build",
-  --     bibtexFormatter = "texlab",
-  --     build = {
-  --       args = { "-pdf","-bibtex", "-interaction=nonstopmode", "-synctex=1","-auxdir=./latex_build","-output-directory=./latex_build", "%f"},
-  --       executable = "latexmk",
-  --       -- args = { "-X", "compile", "%f", "--synctex", "--keep-logs", "--keep-intermediates", "--outdir", "./latex_build" },
-  --       -- executable = "/usr/bin/tectonic",
-  --       forwardSearchAfter = false,
-  --       onSave = true
-  --     },
-  --     chktex = {
-  --       onEdit = false,
-  --       onOpenAndSave = false
-  --     },
-  --     diagnosticsDelay = 300,
-  --     formatterLineLength = 80,
-  --     latexFormatter = "latexindent",
-  --     latexindent = {
-  --       modifyLineBreaks = false
-  --     }
-  --   }}}
-	end
-})
-
 -- vim: ts=2 sts=2 sw=2 et

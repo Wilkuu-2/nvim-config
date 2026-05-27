@@ -6,7 +6,7 @@ vim.opt.termguicolors = true
 vim.g.mapleader = " "
 vim.opt.guicursor = ""
 
-local wilkuu_prefix = "lua.wilkuu."
+local wilkuu_prefix = "wilkuu."
 
 require(wilkuu_prefix .. "options")
 require(wilkuu_prefix .. "keymaps").vim()
@@ -37,7 +37,8 @@ require("lazy").setup("plugins", {
 })
 
 
-require("lua.workarounds")
+require("workarounds")
 -- require("luasnip.loaders.from_lua").load({paths = "~/.config/nvim/snippets"})
+require(wilkuu_prefix .. "lsp" )
 require(wilkuu_prefix .. "plugin_config")
 

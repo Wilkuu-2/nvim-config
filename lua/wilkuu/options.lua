@@ -22,6 +22,9 @@ vim.o.splitbelow = true
 -- Show tabs and spaces
 vim.o.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+vim.o.tabstop = 2
+vim.o.shiftwidth = 2
+vim.o.expandtab = true
 
 -- Preview substitutions live, as you type!
 vim.o.inccommand = 'split'

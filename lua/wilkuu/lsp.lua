@@ -80,7 +80,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
   vim.lsp.enable('codebook');
   vim.lsp.config('codebook', {
-    filetypes =  { "c", "css", "gitcommit", "go", "haskell", "html", "java", "javascript", "javascriptreact", "lua", "markdown", "php", "python", "ruby", "rust", "toml", "text", "typescript", "typescriptreact", "typst"}
+     filetypes =  { "c", "css", "gitcommit", "go", "haskell", "html", "java", "javascript", "javascriptreact", "lua", "markdown", "php", "python", "ruby", "rust", "toml", "text", "typescript", "typescriptreact", "typst"}
   });
 
   vim.lsp.config('ts_ls', {

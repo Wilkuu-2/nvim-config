@@ -1,0 +1,7 @@
+-- Load in the real config, if exists
+local ok, fn = pcall (require, "entry")
+if ok then 
+  fn({ nix = false, })
+else
+  vim.notify("lua/entry.lua not found, no config to load", vim.log.levels.DEBUG) 
+end

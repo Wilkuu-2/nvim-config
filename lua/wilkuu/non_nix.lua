@@ -1,0 +1,1 @@
+-- Things to add when we are not running nix 
